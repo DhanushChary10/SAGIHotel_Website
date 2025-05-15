@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAGI Hotel</title>
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            background-color:  gray;
+           
+        }
+
+        main {
+            flex: 1;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+        }
+
+        header nav ul li a:hover {
+            background: #d4af37;
+            color: black;
+            border-radius: 5px;
+        }
+
+        section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: auto;
+            display: none;
+            background: url('sagi logo1.jpg') no-repeat center center/cover;
+            color:black;
+            border-radius: 10px;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        form input, form select, form textarea, form button {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form button {
+            background-color: #d4af37;
+            color: white;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #b18d2a;
+        }
+
+        .error-message {
+            color: red;
+            margin: 10px 0;
+        }
+
+        footer {
+            margin-top: auto;
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+
+        .hero {
+            background: url('background image.jpg') no-repeat center center/cover;
+            height: 100vh;
+            color: white;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border-radius: 10px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero .btn {
+            padding: 10px 20px;
+            background: #d4af37;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .hero .btn:hover {
+            background: #b18d2a;
+        }
+
+        .image-row {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .image-row img {
+            width: 30%;
+            border-radius: 10px;
+        }
+
+        .section-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #d4af37;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .section-button:hover {
+            background: #b18d2a;
+        }
+    </style>
+</head>
+<body>
+    
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="navigateTo('home')">Home</a></li>
+                <li><a href="#" onclick="navigateTo('about')">About Us</a></li>
+                <li><a href="#" onclick="navigateTo('rooms')">Rooms</a></li>
+                <li><a href="#" onclick="navigateTo('dining')">Dining</a></li>
+                <li><a href="#" onclick="navigateTo('room-booking-form')">Room Booking</a></li>
+                <li><a href="#" onclick="navigateTo('table-booking-form')">Table Booking</a></li>
+                <li><a href="#" onclick="navigateTo('login')">Login</a></li>
+                <li><a href="#" onclick="navigateTo('signup')">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        
+        <section id="home" class="active">
+            <div class="hero">
+                <h1>Welcome to SAGI Hotel</h1>
+                <p>Luxury and comfort at its finest</p>
+                <a href="#" class="btn" onclick="navigateTo('rooms')">Explore Rooms</a>
+            </div>
+        </section>
+
+        
+        <section id="about">
+            <h1>About Us</h1>
+            
+            <pre>
+                <b>Sagi 5-Star Hotel: A Legacy of Luxury in India:</b>
+                        Welcome to Sagi 5-Star Hotel, an iconic name in luxury hospitality that has been offering unparalleled service and exceptional experiences since its 
+                        inception. Situated in some of the most sought-after destinations across India, Sagi 5-Star Hotel is the epitome of luxury, blending timeless elegance 
+                        with contemporary sophistication.
+                    <b>Our History: A Journey of Excellence:</b>
+                        The story of Sagi 5-Star Hotel began in 2005 with the opening of our flagship property in Mumbai, India’s financial capital. The hotel was created with
+                        a vision to provide a luxury experience that caters to both business and leisure travelers, with a focus on elegance, comfort, and world-class service.
+                        Since then, Sagi 5-Star Hotel has grown into one of the most recognized luxury hotel chains in India, with multiple branches across the country.
+
+                        What started as a boutique luxury hotel has expanded its reach, with locations in major metropolitan cities, each reflecting the unique charm of 
+                        the region while maintaining the signature opulence and excellence that Sagi is known for.
+
+                    <b>Our Vision: Luxury Beyond Expectations:</b>
+                        The founding vision of Sagi 5-Star Hotel was simple yet profound: to redefine the meaning of luxury in India by offering an elevated hospitality 
+                        experience. With a blend of traditional Indian hospitality and contemporary luxury, every Sagi 5-Star Hotel offers more than just a place to stay 
+                        — it provides an experience that guests will cherish forever.
+                    <b>Our Expanding Legacy: Hotels Across India</b>
+                        Today, Sagi 5-Star Hotel has expanded with 6 locations in key cities across India, each offering the highest level of service, luxury, and comfort:
+                        1.Sagi Mumbai – Opened in 2005:
+                        2.Sagi Delhi – Opened in 2007:
+                        3.Sagi Bangalore – Opened in 2011:
+                        4.Sagi Jaipur – Opened in 2013:
+                        5.Sagi Goa – Opened in 2015:
+                        6.Sagi Kolkata – Opened in 2018:
+            </pre>
+            <div class="image-row">
+                <img src="out1.jpg" alt="Hotel Exterior">
+                <img src="out2.jpg" alt="Hotel Lobby">
+                <img src="out3.jpg" alt="Hotel Pool">
+            </div>
+        </section>
+
+        
+        <section id="rooms">
+            <h1>Rooms & Suites</h1>
+            <pre>
+                <b>Rooms at Sagi 5-Star Hotel: Luxury, Comfort, and Elegance:</b>
+                    At Sagi 5-Star Hotel, every room is designed with a commitment to providing the highest level of comfort, elegance, and luxury. Whether you are traveling 
+                    for business or leisure, the rooms cater to all your needs and offer a serene space to relax and unwind. Each hotel property in India offers a range of 
+                    room types, all furnished with the finest materials, state-of-the-art amenities, and impeccable attention to detail.
+                    1. Deluxe Room
+                    2. Executive Suite
+                    3. Presidential Suite
+                    4. Classic Room
+                    <b>Room Features Across All Properties:</b>
+                        Regardless of which room category you choose, every Sagi 5-Star Hotel room across India comes with the following 
+                        premium features:
+
+                    <b>High-Speed Wi-Fi:</b> Complimentary internet access throughout the hotel.
+                    <b>Smart TV:</b> With a variety of international and regional channels.
+                    <b>Luxury Toiletries:</b> Premium bathroom products, including organic shampoos and lotions.
+                    <b>Air Conditioning:</b> All rooms are equipped with air conditioning to ensure a comfortable environment.
+                    <b>24/7 Room Service:</b> Enjoy gourmet dining at any time of the day or night.
+                    <b>Exclusive Offers and Packages</b>
+                        To make your stay even more memorable, Sagi 5-Star Hotel offers exclusive room packages, including:
+
+                    <b>Early Check-In/ Late Check-Out:</b> Flexible check-in/check-out times upon request.
+                    <b>Spa and Wellness Packages:</b> Includes spa treatments for relaxation during your stay.
+                    <b>Family and Kids-Friendly Packages:</b> Special discounts and amenities for families traveling with children.
+                    These rooms, alongside the world-class services and amenities offered at each Sagi 5-Star Hotel location, ensure that 
+                    every guest has a luxurious and unforgettable experience during their stay in India. Whether you’re here for business, 
+                    leisure, or a special occasion, Sagi 5-Star Hotel offers rooms that cater to every need.
+            </pre>
+            <div class="image-row">
+                <img src="bed1.jpg" alt="Deluxe Room">
+                <img src="bed2.jpg" alt="Executive Suite">
+                <img src="bed3.jpg" alt="Presidential Suite">
+            </div>
+            <button onclick="navigateTo('room-booking-form')" class="section-button">Book Now</button>
+        </section>
+
+        
+        <section id="dining">
+            <h1>Dining</h1>
+            <pre>
+                <b>Dining at Sagi 5-Star Hotel: A Culinary Journey</b>
+                    At Sagi 5-Star Hotel, we believe that dining is an experience that should engage all the senses. Our 
+                    world-class chefs use the finest ingredients, and our restaurants offer a variety of cuisines that 
+                    represent both traditional and international flavors. Each location boasts a range of unique dining 
+                    venues, from Michelin-caliber fine dining restaurants to relaxed cafés and all-day dining options.
+                    1. The Royal Dining Room (Fine Dining)
+                    2. Spice Symphony (Indian Cuisine)
+                    3. Le Bistro (French and European Cuisine)
+                    4. The Ocean Grill (Seafood Specialties)
+            </pre>
+            <div class="image-row">
+                <img src="din1.jpg" alt="Royal Restaurant">
+                <img src="din2.jpg" alt="Sky Lounge">
+                <img src="din3.jpg" alt="Cafe Grande">
+            </div>
+            <button onclick="navigateTo('table-booking-form')" class="section-button">Reserve Now</button>
+        </section>
+
+        
+        <section id="room-booking-form">
+            <h1>Room Booking</h1>
+            <form onsubmit="submitRoomBooking(event)">
+                <input type="text" id="room-name" placeholder="Your Name" required>
+                <input type="email" id="room-email" placeholder="Your Email" required>
+                <input type="tel" id="room-phone" placeholder="Phone Number" required>
+                <select id="room-type" required>
+                    <option value="">Select Room Type</option>
+                    <option value="Deluxe Room">Deluxe Room</option>
+                    <option value="Executive Suite">Executive Suite</option>
+                    <option value="Presidential Suite">Presidential Suite</option>
+                </select>
+                <input type="number" id="room-guests" placeholder="Number of Guests" min="1" max="10" required>
+                <input type="date" id="room-date" required>
+                <button type="submit">Submit Booking</button>
+                <p id="room-form-error" class="error-message"></p>
+            </form>
+        </section>
+
+        
+        <section id="table-booking-form">
+            <h1>Table Booking</h1>
+            <form onsubmit="submitTableBooking(event)">
+                <input type="text" id="table-name" placeholder="Your Name" required>
+                <input type="email" id="table-email" placeholder="Your Email" required>
+                <input type="tel" id="table-phone" placeholder="Phone Number" required>
+                <input type="number" id="table-guests" placeholder="Number of Guests" min="1" max="20" required>
+                <input type="datetime-local" id="table-date" required>
+                <button type="submit">Submit Booking</button>
+                <p id="table-form-error" class="error-message"></p>
+            </form>
+        </section>
+        
+        <section id="login">
+            <h1>Login</h1>
+            <form onsubmit="login(event)">
+                <input type="email" id="login-email" placeholder="Email" required>
+                <input type="password" id="login-password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </section>
+
+        
+        <section id="signup">
+            <h1>Sign Up</h1>
+            <form onsubmit="signup(event)">
+                <input type="text" id="signup-name" placeholder="Your Name" required>
+                <input type="email" id="signup-email" placeholder="Your Email" required>
+                <input type="password" id="signup-password" placeholder="Password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+        </section>
+    </main>
+
+    
+    <footer>
+        <p>&copy; 2024 SAGI Hotel. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        let isLoggedIn = false;
+
+        function navigateTo(sectionId) {
+            document.querySelectorAll('section').forEach(section => section.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        function submitRoomBooking(event) {
+            event.preventDefault();
+            if (!isLoggedIn) {
+                document.getElementById('room-form-error').textContent = "You must log in to book a room.";
+                return;
+            }
+            alert("Room booking completed!");
+        }
+
+        function submitTableBooking(event) {
+            event.preventDefault();
+            if (!isLoggedIn) {
+                document.getElementById('table-form-error').textContent = "You must log in to book a table.";
+                return;
+            }
+            alert("Table booking completed!");
+        }
+
+        function login(event) {
+            event.preventDefault();
+            isLoggedIn = true;
+            alert("Logged in successfully!");
+        }
+
+        function signup(event) {
+            event.preventDefault();
+            isLoggedIn = true;
+            alert("Account created successfully!");
+        }
+    </script>
+</body>
+</html>
+

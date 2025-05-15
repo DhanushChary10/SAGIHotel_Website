@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAGI Hotel & Dining Booking</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-image: url('background image.jpg');
+            background-attachment: fixed;
+        }
+
+        header {
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #FFD700;
+        }
+
+        .hero {
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .section {
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.7);
+            color: #333;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        form label, form input, form select, form button {
+            display: block;
+            margin: 10px 0;
+        }
+
+        form input, form select, form button {
+            padding: 8px;
+            width: 100%;
+            border: 1px solid #333;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .gallery-images {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .gallery-images img {
+            width: calc(33.33% - 10px);
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-images img:hover {
+            transform: scale(1.1); 
+            border: 2px solid rgba(255, 193, 7, 0.7);
+        }
+
+        .confirmation-message {
+            display: none;
+            color: green;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .error-message {
+            display: none;
+            color: red;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: none;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="Rest logo.jpg" alt="Hotel Logo" /> 
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#rooms">Rooms</a></li>
+                <li><a href="#dining">Dining</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to SAGI Hotel & Dining</h1>
+            <p>Your comfort and dining pleasure, our priority!</p>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <h2>About Us</h2>
+        <p>Located in the heart of Flavor Town, SAGI Hotel offers a blend of luxury, comfort, and exceptional service. With elegantly designed rooms, top-notch amenities, and a dining experience that delights the senses, our hotel is perfect for both business and leisure travelers.</p>
+        <p>Our dining facilities provide a wide range of cuisine options, from gourmet dishes crafted by experienced chefs to casual bites in a relaxed atmosphere. Join us for an unforgettable stay and exquisite meals at SAGI Hotel.</p>
+    </section>
+
+    <section id="rooms" class="section">
+        <h2>Room Booking</h2>
+        <form id="room-booking-form">
+            <label for="room-type">Room Type:</label>
+            <select id="room-type" name="room-type" required>
+                <option value="single">Single</option>
+                <option value="double">Double</option>
+                <option value="suite">Suite</option>
+            </select>
+            
+            <label for="check-in">Check-In Date:</label>
+            <input type="date" id="check-in" name="check-in" required>
+            
+            <label for="check-out">Check-Out Date:</label>
+            <input type="date" id="check-out" name="check-out" required>
+            
+            <label for="guests">Number of Guests:</label>
+            <input type="number" id="guests" name="guests" min="1" required>
+            
+            <button type="button" onclick="submitRoomBooking()">Book Now</button>
+            <p id="room-confirmation" class="confirmation-message">Thank you! Your room booking has been confirmed.</p>
+            <p id="room-error" class="error-message">Error: Please ensure check-out is after check-in.</p>
+        </form>
+    </section>
+
+    <section id="dining" class="section">
+        <h2>Dining Reservation</h2>
+        <form id="dining-booking-form">
+            <label for="dining-date">Reservation Date:</label>
+            <input type="date" id="dining-date" name="dining-date" required>
+
+            <label for="dining-time">Time:</label>
+            <input type="time" id="dining-time" name="dining-time" required>
+
+            <label for="dining-guests">Number of Guests:</label>
+            <input type="number" id="dining-guests" name="dining-guests" min="1" required>
+
+            <button type="button" onclick="submitDiningBooking()">Reserve Now</button>
+            <p id="dining-confirmation" class="confirmation-message">Thank you! Your dining reservation has been confirmed.</p>
+            <p id="dining-error" class="error-message">Error: Please ensure the reservation date is not in the past and at least one guest is entered.</p>
+        </form>
+    </section>
+
+    <section id="gallery" class="section">
+        <h2>Gallery</h2>
+        <div class="gallery-images">
+            <img src="sbed.jpg" alt="Room Image 1" />
+            <img src="background image.jpg" alt="Dining Image 1" />
+            <img src="dbed.jpg" alt="Room Image 2" />
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>Contact Us</h2>
+        <p>Address: 123 Foodie Lane, Flavor Town, FT 12345</p>
+        <p>Phone: +91 7079849779</p>
+        <p>Email: pdhanushchary@gmail.com</p>
+        <p>Opening Hours: Mon - Fri: 11 AM - 10 PM | Sat - Sun: 11 AM - 12 AM</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 SAGI Hotel & Dining. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function submitRoomBooking() {
+            const checkInDate = new Date(document.getElementById("check-in").value);
+            const checkOutDate = new Date(document.getElementById("check-out").value);
+            const guests = document.getElementById("guests").value;
+
+            let isValid = true;
+            document.getElementById("room-error").style.display = "none";
+            document.getElementById("room-confirmation").style.display = "none";
+
+            if (checkOutDate <= checkInDate || guests < 1) {
+                document.getElementById("room-error").style.display = "block";
+                isValid = false;
+            }
+
+            if (isValid) {
+                document.getElementById("room-confirmation").style.display = "block";
+                document.getElementById("room-booking-form").reset();
+            }
+        }
+
+        function submitDiningBooking() {
+            const diningDate = new Date(document.getElementById("dining-date").value);
+            const currentDate = new Date();
+            const guests = document.getElementById("dining-guests").value;
+
+            let isValid = true;
+            document.getElementById("dining-error").style.display = "none";
+            document.getElementById("dining-confirmation").style.display = "none";
+
+            if (diningDate < currentDate || guests < 1) {
+                document.getElementById("dining-error").style.display = "block";
+                isValid = false;
+            }
+
+            if (isValid) {
+                document.getElementById("dining-confirmation").style.display = "block";
+                document.getElementById("dining-booking-form").reset();
+            }
+        }
+    </script>
+</body>
+</html>
