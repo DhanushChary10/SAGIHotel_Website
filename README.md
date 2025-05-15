@@ -17,6 +17,7 @@ Welcome to the official repository for the **SAGI Hotel Website** — a modern, 
 
 ## 📁 Project Structure
 
+```plaintext
 SAGIHotel_Website/
 ├── index.html           # Home page
 ├── about.html           # About us page
@@ -27,6 +28,7 @@ SAGIHotel_Website/
 ├── js/
 │   └── script.js        # JavaScript functionality
 └── images/              # Website images
+```
 
 
 ## 🙋‍♂️ Author
